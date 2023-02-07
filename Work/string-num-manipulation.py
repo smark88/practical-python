@@ -1,9 +1,8 @@
-string1 = "Hello"
-string2 = "World"
-
 def concatenate_strings(string1, string2):
     return string1 + " " + string2
 
+string1 = "Hello"
+string2 = "World"
 concatenated = concatenate_strings(string1, string2)
 print("Concatenated:", concatenated)
 '''
