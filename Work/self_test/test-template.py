@@ -124,3 +124,27 @@ print(f'run sum function sum', sum(2021))
 # print('copy folder B files and copy to folder C')
 #
 # write_data('FolderB','FolderC')
+
+
+def maximum_product(nums):
+    '''
+    Calculate the maximum product of 3 distinct numbers for the array. Example 1 : for array: [5,4,1,2,6] , output — 120
+    reverse sort then tke first 3 and multiple 
+    '''
+
+    '''
+    This function takes an array of numbers as input, sorts the array in ascending order,
+    and returns the maximum product of 3 distinct numbers. The calculation involves finding 
+    the maximum product of the 3 largest numbers in the sorted array, or the product of the 2 
+    smallest numbers and the largest number. The function returns the larger of these two products 
+    as the final result.
+    '''
+
+print(maximum_product([5, 4, 1, 2, 6])) # Output: 120
+
+def print_error_lines(filename):
+    '''
+    You are given a log file.Write code to print all the lines containing words "ERROR” and “EXCEPTION”.
+    '''
+
+print_error_lines('log.txt')

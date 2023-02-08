@@ -170,23 +170,99 @@ Output:
 Sum of digits : 5
 '''
 print(f'run sum function sum', sum(2021))
+
+def fac(n):
+    '''
+    Calculate the factorial of a number
+    '''
+    if n == 1:
+        return n
+    else:
+        print(n)
+        return (n * fac(n-1))
+print("5! (5 * 4 * 3 * 2) =", fac(5))
+
+'''
+Output:
+5! (5 * 4 * 3 * 2 *1) = 120
+'''
+
+# import os,re
+# def write_data(source, destination):
+#     '''
+#     Copy contents of files named like “FileA.txt, FileB.txt, …” in FolderA and FolderB to FolderC
+#     '''
+#     if not os.path.isdir(destination):
+#         os.mkdir(destination, 666)
+# 
+#     for file in os.listdir(source):
+#         if re.search("File.*txt", file):
+#             with open(source+'/'+file,'r') as f, open(destination+'/'+file,'a') as s:
+#                 for line in f:
+#                     s.write(line)
 #
-#def fac(n):
-#    '''
-#    Calculate the factorial of a number
-#    '''
-#
-#'''
-#Output:
-#5! (5 * 4 * 3 * 2) = 120
-#'''
-#
-#import os,re
-#def write_data(source, destination):
-#    '''
-#    Copy contents of files named like “FileA.txt, FileB.txt, …” in FolderA and FolderB to FolderC
-#    '''
-#
-# print('copy folder B files and copy to folder C')
-#
-# write_data('FolderB','FolderC')
+# print('copy folder A files and copy to folder C')
+# write_data('FolderA','FolderC')
+
+def maximum_product(nums):
+    '''
+    Calculate the maximum product of 3 distinct numbers for the array. Example 1 : for array: [5,4,1,2,6] , output — 120
+    reverse sort then tke first 3 and multiple 
+    '''
+    nums.sort(reverse=True)
+    return max(nums[0]*nums[1]*nums[2], nums[0]*nums[-1]*nums[-2])
+    '''
+    This function takes an array of numbers as input, sorts the array in ascending order,
+    and returns the maximum product of 3 distinct numbers. The calculation involves finding 
+    the maximum product of the 3 largest numbers in the sorted array, or the product of the 2 
+    smallest numbers and the largest number. The function returns the larger of these two products 
+    as the final result.
+    '''
+
+print(maximum_product([5, 4, 1, 2, 6])) # Output: 120
+
+def print_error_lines(filename):
+    '''
+    You are given a log file.Write code to print all the lines containing words "ERROR” and “EXCEPTION”.
+    '''
+    with open(filename, 'r') as file:
+      for line in file:
+        if 'ERROR' in line or 'EXCEPTION' in line:
+          print(line)
+
+print_error_lines('log.txt')
+
+import json
+import urllib.request
+
+def get_json_data(url):
+    '''
+    Make a GET request to retrieve the JSON data
+    Check if the request was successful 
+    '''
+    response = urllib.request.urlopen(url)
+
+    if response.getcode() == 200:
+        # Load the JSON data into a Python dictionary
+        return json.loads(response.read().decode())
+    else:
+        print("Request failed with status code:", response.getcode())
+        return None
+
+def add_item_to_json(data, new_item):
+    '''
+    Add a new item map item to the data top level key is array
+    '''
+    data.append(new_item)
+    return data
+
+data = get_json_data("https://data.binance.com/api/v3/ticker/24hr")
+new_item={
+    "symbol": "CHEESE",
+    "priceChange": "0.11900000",
+    "priceChangePercent": "1.389",
+    "weightedAvgPrice": "8.46937399"}
+
+if data is not None:
+    data = add_item_to_json(data, new_item)
+    print(json.dumps(data, indent=4))
