@@ -187,3 +187,28 @@ write_data('FolderA','FolderC')
 # print('copy folder B files and copy to folder C')
 #
 # write_data('FolderB','FolderC')
+
+def maximum_product(nums):
+    '''
+    Calculate the maximum product of 3 distinct numbers for the array. Example 1 : for array: [5,4,1,2,6] , output — 120
+    '''
+    nums.sort(reverse=True)
+    return max(nums[0]*nums[1]*nums[2], nums[0]*nums[-1]*nums[-2])
+
+# test the function with the example array
+array = [5, 4, 1, 2, 6]
+print(maximum_product(array)) # Output: 120
+
+
+def print_error_lines(filename):
+    '''
+    You are given a log file.Write code to print all the lines containing words “errors” and “exceptions”.
+    '''
+    with open(filename, 'r') as file:
+        for line in file:
+            if 'errors' in line or 'exceptions' in line:
+                print(line)
+
+# test the function with a log file
+filename = 'log.txt'
+print_error_lines(filename)
