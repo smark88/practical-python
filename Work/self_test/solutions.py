@@ -426,3 +426,15 @@ string = 'ABCFABCXBCDABCX'
 substring = 'ABCD'
 
 print(substringFind(string,substring))  # Output: 10
+
+def find_non_consecutive(arr):
+    diff1 = ord(arr[1][0]) - ord(arr[0][0])
+    diff2 = ord(arr[2][0]) - ord(arr[1][0])
+
+    if diff1 == diff2:
+        return None
+    else:
+        for s in arr:
+            if ord(s[0]) - ord(arr[0][0]) != diff1:
+                return s
+        return None
