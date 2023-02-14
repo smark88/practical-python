@@ -412,3 +412,17 @@ current = {
     'BS': 0.818,	 	
     }
 print(pax(69.420,current,'as'))
+
+def substringFind(string,substring):
+
+    # Replace X with D to get the correct string
+    substring.replace('X', 'D')
+
+    # Use the index function to find the first occurrence of the substring
+    index = string.index(substring)
+    return index
+
+string = 'ABCFABCXBCDABCX'
+substring = 'ABCD'
+
+print(substringFind(string,substring))  # Output: 10
