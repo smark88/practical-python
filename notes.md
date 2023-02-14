@@ -116,3 +116,20 @@ Producer API
 Consumer API
 Streams API
 Connector API
+
+## Explain paging, Deadlock, ROM, RAM, Bankers algorithm
+
+Paging:
+Paging is a memory management scheme used by operating systems to manage and allocate memory. In paging, the memory is divided into equal sized blocks called pages. The operating system uses a page table to keep track of the location of each page in physical memory. When a program needs to access a particular page, the operating system translates the virtual address of the page into a physical address, using the page table.
+
+Deadlock:
+Deadlock is a situation in computer science where two or more processes are unable to continue executing because they are waiting for each other to release resources. This can happen when two processes are waiting for each other to release a shared resource, such as a file or a piece of memory. Deadlock can cause a system to freeze or become unresponsive.
+
+ROM:
+ROM stands for Read-Only Memory. It is a type of memory that is used to store permanent data that cannot be changed. ROM is used in computer systems to store firmware and other system-level software that needs to be permanently stored in the computer's memory. ROM is non-volatile memory, which means that it retains its data even when the power is turned off.
+
+RAM:
+RAM stands for Random Access Memory. It is a type of memory that is used by the computer to temporarily store data that the computer is currently using. RAM is volatile memory, which means that it loses its data when the power is turned off. RAM is used by the computer to store the operating system, applications, and user data.
+
+Banker's Algorithm:
+The Banker's algorithm is a resource allocation and deadlock avoidance algorithm. It is used by operating systems to manage resource allocation in a system. The Banker's algorithm ensures that the system can avoid deadlock by checking the safe state before allocating resources to a process. In the Banker's algorithm, the system keeps track of the available resources and the maximum resources that each process can request. When a process requests resources, the system checks if the request can be granted without causing a deadlock. If the request can be granted, the resources are allocated to the process. If the request cannot be granted, the process is forced to wait until the required resources become available.
