@@ -1,0 +1,109 @@
+## Tech Questions:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Troubleshoot networking issue on linux?
+- To troubleshoot a network issue in Linux, you can use tools such as ping, traceroute, netstat, and tcpdump to check network connectivity, routing, and traffic. You can also check log files in /var/log for error messages.
+
+
+#### Difference between TLS version 1.2 and 1.3. Explain the DNS flow when any website is accessed on browser. Python coding question on bucket sort algorithm. How to search for a target string from a network command output (using regex)
+1. Improved security: stronger encryption 
+2. Faster performance 
+3. Enhanced privacy: TLS 1.3 encrypts more of the data in transit
+
+#### Describe what happens when you hit "enter" on a browser URL.
+1. resolves DNS.
+2. creates an HTTP request with dns address. The request includes the URL you entered, any headers, and any data that should be sent to the server.
+3. establishes a connection (TCP).
+4. sends the HTTP request
+5. Web server receives the request 
+6. Web server generates an HTTP response
+7. Web server sends HTTP response back
+8. browser receives the response
+
+#### SSL termination at proxy level
+1. initiates an SSL connection to the proxy by sending a request to webserver
+2. proxy decrypts the SSL connection, revealing the plaintext traffic.
+3. The proxy inspects and possibly modifies the plaintext traffic before forwarding it to the server.
+4. The proxy re-encrypts the traffic using a new SSL connection to the server.
+5. The server receives the encrypted traffic, processes the request, and sends a response back to the proxy.
+6. The proxy decrypts the response from the server, inspects it
+7. The proxy re-encrypts the response and sends it back to the client.
+
+#### Explain the OSI model
+1. Physical layer: physical aspects of data transmission
+2. Data Link Layer: reliable delivery of data frames between devices connected to the same network.
+3. Network Layer: routing of data packets
+4. Transport Layer: ensures end-to-end data integrity.
+5. Session Layer: establishment and maintenance of communication sessions between applications.
+6. Presentation Layer: converts data into a standardized format for transmission.
+7. Application Layer: application-specific processes and services
+
+#### What are cgroups in linux?
+Control groups (cgroups) are a Linux kernel feature that allows you to allocate and manage system resources, such as CPU time, memory, and I/O bandwidth, for a group of processes. This allows you to control the resource usage of individual processes or groups of processes to ensure that they do not interfere with each other or with the overall stability of the system.
+
+#### SystemD
+1. Replaces init levels
+2. manage system processes and services
+3. systemd uses a unit-based configuration system, where each service or process is defined in a separate unit file.
+4. logging 
+`journalctl -u ssh.service`
+`journalctl --priority=err`
+5. services `systemctl status ssh.service`
+
+## iops testin linux
+utility for testing `fio` 
+show device mb/S `iostat -md` 
+shows avg I/O `vmstat`
+show mounts `lsblk` or `fstab -l`
+
+# Ansible
+1. task
+2. module
+3. play/playbook
+4. role
+5. inventory - file
+
+## Aws
+alb (application) - L7
+    best suited for http/https and
+nlb (network) - L4 static ips
+    bet suited for tcp/udp
+
+## kafka (Broker)
+
