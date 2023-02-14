@@ -1,3 +1,41 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def concatenate_strings(string1, string2):
   newString = string1 + " " + string2
   return newString
@@ -41,6 +79,18 @@ def format_string(string):
 Formatted: Hello, John
 '''
 print(format_string("Hello {World}"))
+
+import csv
+def csvread()
+    # opening the CSV file
+    with open('Giants.csv', mode ='r')as file:
+
+    # reading the CSV file
+    csvFile = csv.reader(file)
+
+    # displaying the contents of the CSV file
+    for lines in csvFile:
+        print(lines)
 
 def permutation(string, mutation=''):
     '''
@@ -163,7 +213,6 @@ def sum(n):
     for digit in str(n): 
       sum += int(digit) # loop keep appending this to previous sum 
     return sum
-   
 '''
 Input: 2021
 Output:
@@ -187,22 +236,22 @@ Output:
 5! (5 * 4 * 3 * 2 *1) = 120
 '''
 
-# import os,re
-# def write_data(source, destination):
-#     '''
-#     Copy contents of files named like “FileA.txt, FileB.txt, …” in FolderA and FolderB to FolderC
-#     '''
-#     if not os.path.isdir(destination):
-#         os.mkdir(destination, 666)
-# 
-#     for file in os.listdir(source):
-#         if re.search("File.*txt", file):
-#             with open(source+'/'+file,'r') as f, open(destination+'/'+file,'a') as s:
-#                 for line in f:
-#                     s.write(line)
+import os,re
+def write_data(source, destination):
+    '''
+    Copy contents of files named like “FileA.txt, FileB.txt, …” in FolderA and FolderB to FolderC
+    '''
+    if not os.path.isdir(destination):
+        os.mkdir(destination, 666)
+
+    for file in os.listdir(source):
+        if re.search("File.*txt", file):
+            with open(source+'/'+file,'r') as f, open(destination+'/'+file,'a') as s:
+                for line in f:
+                    s.write(line)
 #
-# print('copy folder A files and copy to folder C')
-# write_data('FolderA','FolderC')
+print('copy folder A files and copy to folder C')
+write_data('FolderA','FolderC')
 
 def maximum_product(nums):
     '''
@@ -253,7 +302,11 @@ def add_item_to_json(data, new_item):
     '''
     Add a new item map item to the data top level key is array
     '''
+    # if list [] append
     data.append(new_item)
+    # if map {} update
+    data.update({"cheese": "pizza"})
+        
     return data
 
 data = get_json_data("https://data.binance.com/api/v3/ticker/24hr")
@@ -266,3 +319,96 @@ new_item={
 if data is not None:
     data = add_item_to_json(data, new_item)
     print(json.dumps(data, indent=4))
+
+class Node:
+    def __init__(self, data):
+        """
+        The constructor for the Node class.
+        This function creates a new Node object and sets its data value to the input data.
+        It also sets the left and right pointers to None.
+        :param data: The value to store in the node.
+        """
+        self.data = data
+        self.left = None
+        self.right = None
+
+class BinaryTree:
+    def __init__(self):
+        """
+        The constructor for the BinaryTree class.
+        This function creates a new BinaryTree object and sets its root to None.
+        """
+        self.root = None
+
+    def insert(self, data):
+        """
+        Inserts a new node with the input data into the binary tree.
+        :param data: The value to insert into the tree.
+        """
+        new_node = Node(data)
+        if self.root is None:
+            self.root = new_node
+            return
+        current = self.root
+        while True:
+            if data <= current.data:
+                if current.left is None:
+                    current.left = new_node
+                    return
+                current = current.left
+            else:
+                if current.right is None:
+                    current.right = new_node
+                    return
+                current = current.right
+bt = BinaryTree()
+
+import sys
+from collections import defaultdict
+from collections import Counter
+
+def openfile(filename):
+    with open(filename, 'rt') as f:
+        text = f.read().lower().split()
+    return text
+
+def count_vanilla(text):
+    '''
+    if the key is not in the dict then it need to be initialized this is why we use a "not in" statement 
+    '''
+    counter = {}
+    for word in text:
+        if word not in counter:
+            counter[word] = 0
+        counter[word] +=1
+    return counter
+
+def unique_count_counter(text):
+    '''
+    Count number unique words by using the built in counting function Counter + set
+    '''
+    counter = Counter(set(text))
+    return counter
+
+def pax(time,paxlist,pax):
+    '''
+    scca pax outputer with dicts
+    '''
+    pax = pax.upper()
+    if time is not None and pax in paxlist:
+        try:
+            output = {}
+            output['Pax'] = pax
+            output['Multiplier'] =  paxlist[pax]
+            output['Time'] =  round(time * paxlist[pax],3)
+            return output
+        except:
+            ValueError
+            return 1
+
+current = {
+    'SS': 0.833,	 	
+    'AS': 0.823,	 	
+    'BS': 0.818,	 	
+    }
+print(pax(69.420,current,'as'))
