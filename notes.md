@@ -106,4 +106,13 @@ nlb (network) - L4 static ips
     bet suited for tcp/udp
 
 ## kafka (Broker)
-
+Topic – Kafka Topic is the bunch or a collection of messages.
+Producer – In Kafka, Producers issue communications as well as publishes messages to a Kafka topic.
+Consumer – Kafka Consumers subscribes to a topic(s) and also reads and processes messages from the topic(s).
+Brokers – While it comes to manage storage of messages in the topic(s) we use Kafka Brokers. For detailed understanding of Kafka components, go through,
+Zookeeper - main role here is to build coordination between different nodes in a cluster
+#### Apis
+Producer API
+Consumer API
+Streams API
+Connector API
