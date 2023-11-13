@@ -48,17 +48,28 @@ def unique_count_counter(text):
     counter = Counter(set(text))
     return counter
 
-def main(filename):
+def main(filename, method):
     input = openfile(filename)
-    print(count_counter(input))
+    if method == 'count_counter':
+        print(count_counter(input))
+    elif method == 'unique_count_counter':
+        print(unique_count_counter(input))
+    elif method == 'count_defaultdict':
+        print(count_defaultdict(input))
+    elif method == 'count_vanilla':
+        print(count_vanilla(input))
+    else:
+        print('No method selected please try using count_counter, unique_count_counter, count_vanilla  and count_defaultdict')
 
 
 if __name__ == '__main__':
     '''
     using sys can import an argument from stdin
     '''
-    if len(sys.argv) == 2:
+    if len(sys.argv) == 3:
         filename = sys.argv[1]
+        method = sys.argv[2]
     else:
         filename = 'Data/sampleText.txt'
-    main(filename)
+        method = 'count_counter'
+    main(filename, method)
